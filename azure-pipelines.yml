@@ -1,0 +1,16 @@
+
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+  - checkout: self
+    persistCredentials: true
+  - task: Bash@3
+    displayName: 'create current branch and merge develop'
+    inputs:
+      targetType: 'inline'
+      script: |
+          git config --global user.email "duc.nguyen@bizone.com.vn"
+          git config --global user.name "ducnguyen452021"
+          git merge origin/develop
+  - script: sbt clean coverage test coverageReport coverageOff
+    displayName: 'Running $ scan line of code function coverageReport'
