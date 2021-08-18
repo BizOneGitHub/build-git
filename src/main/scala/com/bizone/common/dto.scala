@@ -2,6 +2,6 @@ package com.bizone.common
 
 class dto {
 def print(): Unit ={
-  println("thithithtihi")
+  println("thi 2k")
 }
 }
